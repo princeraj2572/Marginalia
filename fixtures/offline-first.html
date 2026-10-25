@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Designing for the Tunnel | Signal Notes</title>
+<meta name="author" content="Priya Raman">
+<meta property="og:site_name" content="Signal Notes">
+</head>
+<body>
+<header><a href="/">Signal Notes</a></header>
+<article>
+<h1>Designing for the Tunnel</h1>
+<p>By Priya Raman</p>
+<p>Every commuter knows the moment: the train drops underground, the progress bar freezes, and the app you were relying on becomes a blank rectangle. Offline support is often sold as an edge case. For a reading app, it is the main case.</p>
+<h2>Cache the shell, store the content</h2>
+<p>An application shell is the part of the interface that never changes: layout, styles, scripts. A service worker can serve it from cache so the app opens instantly with no network. The content itself belongs in a local database, where it can be queried without a round trip.</p>
+<pre><code class="language-ts">self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((hit) => hit ?? fetch(event.request)),
+  );
+});</code></pre>
+<h2>Be honest about state</h2>
+<p>Offline-first does not mean pretending the network is always there. Tell people what is saved, what is waiting, and what cannot work yet. A small, calm indicator beats a spinner that never resolves.</p>
+<blockquote><p>The best offline experience is one the reader never has to think about.</p></blockquote>
+<p>Test it the unglamorous way: switch on airplane mode and use the product for a day. The gaps you find will be the ones your users find on the metro.</p>
+</article>
+</body>
+</html>
