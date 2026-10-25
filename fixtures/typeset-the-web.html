@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Setting Type for Screens | Folio &amp; Grain</title>
+<meta name="author" content="Jonas Lindqvist">
+<meta property="og:site_name" content="Folio &amp; Grain">
+</head>
+<body>
+<main>
+<article>
+<h1>Setting Type for Screens</h1>
+<p>By Jonas Lindqvist</p>
+<p>Good typography on a screen starts with a number that nobody writes down: the measure. Somewhere between sixty and seventy-five characters per line, the eye can return to the next line without hunting. Push past ninety and readers lose their place; shrink below forty and the text stutters.</p>
+<h2>Leading and rhythm</h2>
+<p>Line height is the second dial. Body text wants roughly one and a half times the font size, a little more for long lines and a little less for short ones. Headings tighten up, because large type needs less air to hold together.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect width='600' height='300' fill='%23d9c9a8'/%3E%3C/svg%3E" alt="A tan rectangle standing in for a specimen sheet">
+<figcaption>A specimen sheet, reduced to a swatch.</figcaption>
+</figure>
+<h2>A working stylesheet</h2>
+<p>The following is enough to make most articles comfortable to read:</p>
+<pre><code class="language-css">article {
+  max-width: 68ch;
+  font: 1.15rem/1.7 Georgia, serif;
+  margin-inline: auto;
+}</code></pre>
+<p>Notice what is missing: no fixed pixel widths, no tiny gray text. Everything scales with the reader's own settings, which is the point.</p>
+<h2>Numbers and detail</h2>
+<p>Tabular figures keep columns of numbers aligned, which matters in dashboards and reading statistics. Proportional figures look better in running prose. Choose each on purpose.</p>
+</article>
+</main>
+</body>
+</html>
